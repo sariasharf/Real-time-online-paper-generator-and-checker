@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Automated Checker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@200;300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/dc174c3d80.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  </head>
+  <body>
+    <div id="dash-main" class="container">
+      <div class="sidebar">
+        <!--<div class="">-->
+          <img src="/static/images/sidebarlogo.png" alt="logo" class="img-fluid m-3 " />
+          <hr class="w-100 hr-top" />
+          <div class="sidebar-menu">
+            <ul>
+              <li class="list-class"><a class="a-class" href="/dashboard">Generate Paper</a></li>
+                <li class="list-class"><a class="a-class" href="{{ url_for('dashqab') }}"> Automated Checker</a></li>
+                 <li class="list-class"><a class="a-class" href="{{ url_for('dashqa') }}"> Q/A Generator </a></li>
+                 <li class="list-class"><a class="a-class" href="{{ url_for('question') }}"> Get Answer </a></li>
+                <li class="list-class"><a  class="a-class" href="" onclick="logout(event)">Logout</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+         <h1>Welcome <span id="displayName"></span></h1>
+          <div style="margin: 3%">
+          <p>Generate a paper, answer directly in the provided text boxes, and get real-time feedback. Our advanced checker evaluates your answers and provides scores immediately. Perfect for practice tests and quick assessments.</p>
+          <h3>Test smarter — instant grading for instant learning!</h3>
+          <img src="/static/images/Paper Plus.svg" alt="" />
+              <!--Table Form-->
+            <style>
+    table {
+        margin: 20px auto;
+        border-collapse: collapse;
+    }
+    td {
+        padding: 5px;
+    }
+    label {
+        font-weight: ;
+    }
+    input[type="file"], input[type="number"] {
+        width: 250px;
+    }
+    button {
+        padding: 8px 16px;
+        background-color: #882DFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #ba85ff;
+    }
+</style>
+
+<form action="/uploadi" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><label for="file">Choose a file:</label></td>
+            <td><input type="file" name="file" id="file" required></td>
+        </tr>
+        <tr>
+            <td><label for="num_questions">No. of Questions:</label></td>
+            <td><input type="number" name="num_questions" id="num_questions" value="1" required></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <button type="submit">Generate Paper</button>
+            </td>
+        </tr>
+    </table>
+</form>
+   <!-- <form action="/uploadi" method="post" enctype="multipart/form-data">
+        <label for="file">Choose a file:</label>
+        <input type="file" name="file" id="file" required>
+        <br>
+        <label for="num_questions">Number of Questions:</label>
+        <input type="number" name="num_questions" id="num_questions" value="1" required>
+        <br>
+
+        <button type="submit">Generate Questions</button>
+    </form>-->
+      </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="/static/javascript/app.js"></script>
+  </body>
+</html>

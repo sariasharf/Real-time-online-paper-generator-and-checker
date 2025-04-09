@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Results</h1>
+    <p>User: {{ user_name }}</p>
+    <ul>
+        {% for result in results %}
+            <li>Score: {{ result }}/10</li>
+        {% endfor %}
+    </ul>
+
+<p>Total Marks Obtained: {{ total_marks }} / {{ total_marks_possible }}</p>
+
+</body>
+</html>

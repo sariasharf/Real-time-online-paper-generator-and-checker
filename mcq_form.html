@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Form</title>
+</head>
+<body>
+    <h1>Answer the MCQs</h1>
+    <form action="/submit" method="post">
+        {% for mcq in mcqs %}
+        <fieldset>
+            <legend>{{ mcq['question'] }}</legend>
+            {% for option in mcq['options'] %}
+            <label>
+                <input type="radio" name="mcq_{{ loop.index0 }}" value="{{ loop.index0 }}">
+                {{ option }}
+            </label><br>
+            {% endfor %}
+            <button type="submit">Next Question</button>
+        </fieldset>
+        {% endfor %}
+        <button type="submit">Submit Answers</button>
+    </form>
+</body>
+</html>

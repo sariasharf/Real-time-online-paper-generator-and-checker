@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Questions</title>
+</head>
+<body>
+<style>
+    h1{
+    color: #882DFF;
+    }
+</style>
+    <h1>Online Exam </h1>
+    <form action="/submit_answers" method="post">
+    <!-- Input field for user's name -->
+        <label for="user_name"><b>Student Name:</b></label>
+        <input type="text" name="user_name" id="user_name" required><br>
+<br>
+        <!-- Your form inputs and questions -->
+        {% for question in generated_content %}
+            {% if question.strip() %}
+                <input type="hidden" name="original_answers[]" value="{{ question }}">
+                <label for="answer{{ loop.index }}">Question {{ loop.index }}: {{ question }}</label>
+                <input type="text" name="submitted_answers[]" id="answer{{ loop.index }}" required><br>
+            {% endif %}
+        {% endfor %}
+        <style>
+            button {
+        margin: 10px;
+        padding: 8px 16px;
+        background-color: #882DFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #ba85ff;
+    }
+        </style>
+        <button type="submit">Submit Answers and save result</button>
+    </form>
+</body>
+</html>

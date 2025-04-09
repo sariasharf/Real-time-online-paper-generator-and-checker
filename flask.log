@@ -1,0 +1,13 @@
+Exception on /upload [POST]
+Traceback (most recent call last):
+  File "C:\Users\mmm developers\PycharmProjects\flaskProject\venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\mmm developers\PycharmProjects\flaskProject\venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\mmm developers\PycharmProjects\flaskProject\venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\mmm developers\PycharmProjects\flaskProject\venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\mmm developers\PycharmProjects\flaskProject\app.py", line 95, in upload
+    pdf_file_path = create_pdf(questions)
+TypeError: create_pdf() missing 4 required positional arguments: 'school_name', 'subject_name', 'total_marks', and 'student_name'

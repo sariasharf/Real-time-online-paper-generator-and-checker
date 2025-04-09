@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Questions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #882DFF;
+        }
+
+        #pdf-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        label {
+            margin-bottom: 5px;
+            width: 150px; /* Set a consistent width for labels */
+            display: inline-block;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 5px;
+            width: 250px; /* Set a consistent width for input boxes */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generated Questions</h1>
+    <div id="pdf-section">
+ <form action="{{ url_for('download_pdf', filename=pdf_file) }}" method="post">
+       <label for="school_name">School Name:</label>
+        <input type="text" name="school_name" required><br>
+
+        <label for="subject_name">Subject Name:</label>
+        <input type="text" name="subject_name" required><br>
+
+        <label for="total_marks">Total Marks:</label>
+        <input type="number" name="total_marks" required><br>
+
+        <label for="student_name">Student Name:</label>
+        <input type="text" name="student_name"><br>
+        <label for="program">Program:</label>
+        <input type="text" name="program" required><br>
+
+        <label for="semester">Semester:</label>
+        <input type="text" name="semester" required><br>
+
+
+        <label for="obtained_marks">Obtained Marks:</label>
+        <input type="number" name="obtained_marks"><br>
+
+        <label for="teacher_name">Teacher Name:</label>
+        <input type="text" name="teacher_name" required><br>
+  {% for question in questions %}
+        <input type="hidden" name="questions[]" value="{{ question | safe }}">
+    {% endfor %}
+    <ul>
+        {% for question in questions %}
+            {{ question | safe }}<br>
+        {% endfor %}
+    </ul>
+    <br>
+ <a href="{{ url_for('download_pdf', filename=pdf_file) }}" download="generated_questions.pdf">
+     <!--Download button style-->
+     <style>
+    .download-btn {
+        background-color: #882DFF; /* Change to your desired background color */
+        color: white; /* Text color */
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .download-btn:hover {
+        background-color: #ba85ff; /* Darker color for hover effect */
+    }
+</style>
+
+<button class="download-btn">Download Questions as PDF</button>
+
+    <!--<button>Download Questions as PDF</button>-->
+</a>
+     <br>
+
+
+    </form>
+
+    </div>
+</body>
+</html>

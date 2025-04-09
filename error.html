@@ -1,0 +1,40 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+</head>
+<body>
+    <h1>unsupport</h1>
+    <p>{{ error_message }}</p>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .error-message {
+            color: red;
+            font-size: 20px;
+        }
+        .back-link {
+            margin-top: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Error</h1>
+    <p class="error-message">{{ message }}</p>
+    <a href="/dashboard" class="back-link">Go back to the upload page</a>
+</body>
+</html>
